@@ -5,7 +5,7 @@ export default function Counter(){
   return(
     <div>
       <p>Current Coun: {count}</p>
-      <button onClick={()=> setCount(count + 1)}>Incrament</button>
+      <button onClick={()=> setCount(count + 1)}>Increment</button>
       <button onClick={()=> setCount(count - 1)}>Decrement</button>
       <button onClick={()=> setCount(0)}>Reset</button>
     </div>
