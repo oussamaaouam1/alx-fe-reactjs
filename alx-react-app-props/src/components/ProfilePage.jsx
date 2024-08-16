@@ -2,7 +2,10 @@ import UserInfo from './UserInfo';
 function ProfilePage() {
 
   return(
-  <UserInfo />
+    <div>
+    <UserInfo />
+    </div>
+
   )
 }
 export default ProfilePage;
