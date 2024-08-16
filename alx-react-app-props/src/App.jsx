@@ -7,10 +7,13 @@ import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
+import userContext from "./components/UserContext";
+import ProfilePage from "./components/ProfilePage";
 
 
 function App() {
   const [count, setCount] = useState(0);
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
     <>
@@ -42,7 +45,9 @@ function App() {
       
 
 
-
+    <userContext.Provider value={userData}>
+    <ProfilePage />
+    </userContext.Provider>
 
     </>
   );
