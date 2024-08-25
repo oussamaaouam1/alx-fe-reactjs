@@ -45,4 +45,12 @@ export const useRecipeStore = create(set => ({
     })
   ),
 
+  generateRecommendations: () => set((state) => {
+    // Simple recommendation logic based on favorites
+    const recommended = state.recipes.filter(recipe =>
+      state.favorites.includes(recipe.id) && Math.random() > 0.5
+    );
+    return { recommendations: recommended };
+  }),
+
 }));
