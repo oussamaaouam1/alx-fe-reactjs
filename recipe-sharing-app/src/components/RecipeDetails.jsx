@@ -3,6 +3,7 @@ import EditRecipeForm from './EditRecipeForm';
 import DeleteRecipeButton from './DeleteRecipeButton';
 import { useParams } from 'react-router-dom';
 import RecipeList from './RecipeList';
+import FavoritesList from './FavoritesList';
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
@@ -21,6 +22,7 @@ const RecipeDetails = () => {
       <EditRecipeForm recipe={recipe} />
       <DeleteRecipeButton recipeId={recipe.id} />
       <RecipeList />
+      <FavoritesList />
     </div>
   );
 };
