@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 //---------------------my code-----------------
 import { QueryClient, QueryClientProvider } from 'react-query';
-import PostsComponent from './components/PostsComponent'
+import PostsComponent from './components/PostsComponent';
 
 
 
