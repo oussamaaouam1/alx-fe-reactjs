@@ -3,6 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NestedRoutesExample from './components/Profile';
+// import NestedRoutesExample from './components/Profile';
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,9 +37,11 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route>
+          
         </Route>
       </Routes>
     </BrowserRouter>
+    <NestedRoutesExample />
     </>
   )
 }
