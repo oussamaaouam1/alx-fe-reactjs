@@ -11,6 +11,7 @@ const RecipeDetails = () => {
     state.recipes.find(recipe => recipe.id === parseInt(recipeId))
   );
 
+
   if (!recipe) {
     return <div>Recipe not found</div>;
   }

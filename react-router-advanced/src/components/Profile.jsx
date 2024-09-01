@@ -1,10 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, Link, useMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useMatch,useParams } from 'react-router-dom';
 
 // Dashboard component that contains nested routes
 const Dashboard = () => {
     // useMatch provides the current URL and path
     let match = useMatch("/dashboard/*");
-    let path = match.pathnameBase;
     let url = match.pathname;
 
     return (
@@ -33,23 +32,48 @@ const Dashboard = () => {
     );
 };
 
+
+
 // Profile component
 const ProfileDetails = () => <h3>Profile Details</h3>;
 
 // Settings component
 const ProfileSettings = () => <h3>Profile Settings</h3>;
 
+
+// Dynamic BlogPost component
+const BlogPost = () => {
+    const { postSlug } = useParams();
+    const blogPosts = {
+        "react-router-tutorial": "Learn how to use React Router...",
+        "state-management-with-zustand": "Zustand is a great state management tool..."
+    };
+    const postContent = blogPosts[postSlug];
+
+    if (!postContent) return <h3>Blog post not found</h3>;
+
+    return (
+        <div>
+            <h2>{postSlug.replace("-", " ").toUpperCase()}</h2>
+            <p>{postContent}</p>
+        </div>
+    );
+};
+
 const NestedRoutesExample = () => (
     <Router>
         <div>
             <nav>
                 <Link to="/dashboard">Dashboard</Link>
+                <Link to="/blog/react-router-tutorial">React Router Tutorial</Link> | {" "}
+                <Link to="/blog/state-management-with-zustand">State Management with Zustand</Link>
             </nav>
             <Routes>
                 {/* Route to Dashboard component */}
                 <Route path="/dashboard/*" element={<Dashboard />} />
                 {/* Default route to Home component */}
                 <Route path="/" element={<h2>Home</h2>} />
+                <Route path="/blog/:postSlug" element={<BlogPost />} />
             </Routes>
         </div>
     </Router>

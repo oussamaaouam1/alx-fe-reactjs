@@ -2,8 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import NestedRoutesExample from './components/Profile';
+import BlogPost from './components/BlogPost';
 // import NestedRoutesExample from './components/Profile';
 
 
@@ -36,12 +37,12 @@ function App() {
       {/* ---------------------my code------------------------ */}
       <BrowserRouter>
       <Routes>
-        <Route>
+        <Route path="/blog/:postSlug" element={<BlogPost />} />
           
-        </Route>
       </Routes>
     </BrowserRouter>
     <NestedRoutesExample />
+
     </>
   )
 }
