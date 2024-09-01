@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AuthProvider from './components/AuthProvider';
 import Profile from './components/Profile1';
 import Login from './components/Login';
+import NestedRoutesExample from './components/Profile'
 
 const posts = [
     { id: 1, title: 'React Router Tutorial', content: 'Learn how to use React Router...' },
@@ -41,7 +42,8 @@ function App() {
                 <AuthProvider>
                     <nav>
                         <Link to="/dashboard">Dashboard</Link> | {" "}
-                        <Link to="/profile">Profile</Link>
+                        <Link to="/profile">Profile</Link> | {" "}
+                        <Link to="/login">login</Link>
                     </nav>
                     <Routes>
                         <Route path="/blog/:id" element={<BlogPost posts={posts} />} />
@@ -52,6 +54,7 @@ function App() {
                     </Routes>
                 </AuthProvider>
             </BrowserRouter>
+            <NestedRoutesExample />
         </>
     );
 }
