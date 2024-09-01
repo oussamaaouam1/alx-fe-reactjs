@@ -1,64 +1,66 @@
-import { BrowserRouter as Router, Route, Routes, Link, useMatch,useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import BlogPost from './BlogPost';
 
-// Dashboard component that contains nested routes
-const Dashboard = () => {
-    // useMatch provides the current URL and path
-    let match = useMatch("/dashboard/*");
-    let url = match.pathname;
+// // Dashboard component that contains nested routes
+// const Dashboard = () => {
+//     // useMatch provides the current URL and path
+//     let match = useMatch("/dashboard/*");
+//     let url = match.pathname;
 
-    return (
-        <div>
-            <h2>Dashboard</h2>
-            <ul>
-                <li>
-                    <Link to={`${url}/ProfileDetails`}>Profile Details</Link>
-                </li>
-                <li>
-                    <Link to={`${url}/ProfileSettings`}>Profile Settings</Link>
-                </li>
-            </ul>
+//     return (
+//         <div>
+//             <h2>Dashboard</h2>
+//             <ul>
+//                 <li>
+//                     <Link to={`${url}/ProfileDetails`}>Profile Details</Link>
+//                 </li>
+//                 <li>
+//                     <Link to={`${url}/ProfileSettings`}>Profile Settings</Link>
+//                 </li>
+//             </ul>
 
-            {/* Nested routes within the Dashboard component */}
-            <Routes>
-                {/* Default route that displays a message */}
-                <Route path="/" element={<h3>Please select an option.</h3>} />
-                {/* Nested route for Profile */}
-                <Route path="/ProfileDetails" element={<ProfileDetails />} />
-                {/* Nested route for Settings */}
-                <Route path="/ProfileSettings" element={<ProfileSettings />} />
-            </Routes>
+//             {/* Nested routes within the Dashboard component */}
+//             <Routes>
+//                 {/* Default route that displays a message */}
+//                 <Route path="/" element={<h3>Please select an option.</h3>} />
+//                 {/* Nested route for Profile */}
+//                 <Route path="/ProfileDetails" element={<ProfileDetails />} />
+//                 {/* Nested route for Settings */}
+//                 <Route path="/ProfileSettings" element={<ProfileSettings />} />
+//             </Routes>
             
-        </div>
-    );
-};
+//         </div>
+//     );
+// };
 
 
 
-// Profile component
-const ProfileDetails = () => <h3>Profile Details</h3>;
+// // Profile component
+// const ProfileDetails = () => <h3>Profile Details</h3>;
 
-// Settings component
-const ProfileSettings = () => <h3>Profile Settings</h3>;
+// // Settings component
+// const ProfileSettings = () => <h3>Profile Settings</h3>;
 
 
 // Dynamic BlogPost component
-const BlogPost = () => {
-    const { postSlug } = useParams();
-    const blogPosts = {
-        "react-router-tutorial": "Learn how to use React Router...",
-        "state-management-with-zustand": "Zustand is a great state management tool..."
-    };
-    const postContent = blogPosts[postSlug];
+// const BlogPost = () => {
+//     const { postSlug } = useParams();
+//     const blogPosts = {
+//         "react-router-tutorial": "Learn how to use React Router...",
+//         "state-management-with-zustand": "Zustand is a great state management tool..."
+//     };
+//     const postContent = blogPosts[postSlug];
 
-    if (!postContent) return <h3>Blog post not found</h3>;
+//     if (!postContent) return <h3>Blog post not found</h3>;
 
-    return (
-        <div>
-            <h2>{postSlug.replace("-", " ").toUpperCase()}</h2>
-            <p>{postContent}</p>
-        </div>
-    );
-};
+//     return (
+//         <div>
+//             <h2>{postSlug.replace("-", " ").toUpperCase()}</h2>
+//             <p>{postContent}</p>
+//         </div>
+//     );
+// };
 
 const NestedRoutesExample = () => (
     <Router>

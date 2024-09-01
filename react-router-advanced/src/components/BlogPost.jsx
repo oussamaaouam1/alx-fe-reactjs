@@ -1,6 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useParams } from 'react-router-dom';
 
+
+
 const BlogPost = ({ posts }) => {
+  
     const { id } = useParams(); // Get the dynamic ID from the URL
     const post = posts.find((p) => p.id === parseInt(id)); // Find the post by ID
 
