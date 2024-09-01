@@ -5,9 +5,12 @@ import './App.css'
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import NestedRoutesExample from './components/Profile';
 import BlogPost from './components/BlogPost';
-// import NestedRoutesExample from './components/Profile';
 
 
+const posts = [
+    { id: 1, title: 'React Router Tutorial', content: 'Learn how to use React Router...' },
+    { id: 2, title: 'State Management with Zustand', content: 'Zustand is a great state management tool...' },
+];
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,7 +40,7 @@ function App() {
       {/* ---------------------my code------------------------ */}
       <BrowserRouter>
       <Routes>
-        <Route path="/blog/:postSlug" element={<BlogPost />} />
+        <Route path="/blog/:id" element={<BlogPost posts={posts} />} />
           
       </Routes>
     </BrowserRouter>

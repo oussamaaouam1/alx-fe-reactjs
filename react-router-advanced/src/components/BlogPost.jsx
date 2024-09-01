@@ -1,19 +1,15 @@
 import { useParams } from 'react-router-dom';
 
-const BlogPost = () => {
-    const { postSlug } = useParams();
-    const blogPosts = {
-        "react-router-tutorial": "Learn how to use React Router...",
-        "state-management-with-zustand": "Zustand is a great state management tool..."
-    };
-    const postContent = blogPosts[postSlug];
+const BlogPost = ({ posts }) => {
+    const { id } = useParams(); // Get the dynamic ID from the URL
+    const post = posts.find((p) => p.id === parseInt(id)); // Find the post by ID
 
-    if (!postContent) return <h3>Blog post not found</h3>;
+    if (!post) return <h3>Blog post not found</h3>; // If no post is found, show an error
 
     return (
         <div>
-            <h2>{postSlug.replace("-", " ").toUpperCase()}</h2>
-            <p>{postContent}</p>
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
         </div>
     );
 };
