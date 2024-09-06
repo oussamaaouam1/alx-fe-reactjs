@@ -5,5 +5,6 @@ export default {
   theme: {
     extend: {},  // You can extend the theme here
   },
+  variants: { extend: {} },
   plugins: [],  // Add Tailwind plugins if you have any
 };
