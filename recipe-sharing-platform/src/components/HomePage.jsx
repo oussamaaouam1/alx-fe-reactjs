@@ -1,43 +1,19 @@
-import { useEffect,useState } from "react";
-// import data from '.data.json'
-
+import { useEffect, useState } from "react";
+import data from '../data.json'; // Import JSON data
 
 const HomePage = () => {
-  const [recipes , setRecipes] = useState([]);
-
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await fetch('./data.json');
-  //     const data = await res.json();
-  //     setRecipes(data)
-  //   };
-  //   fetchData();
-  // },[]);
-
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const res = await fetch('./data.json');
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await res.json();
-      setRecipes(data);
-    } catch (error) {
-      console.error('Failed to fetch data:', error);
-    }
-  };
-  fetchData();
-}, []);
+    // Since data is imported, you can directly set it to the state
+    setRecipes(data);
+  }, []);
 
-
-  return(
+  return (
     <div>
       <h1>Recipes</h1>
       <div>
-        {recipes.map((recipe)=>(
+        {recipes.map((recipe) => (
           <div key={recipe.id}>
             <img src={recipe.image} alt={recipe.title} />
             <h2>{recipe.title}</h2>
@@ -46,7 +22,7 @@ const HomePage = () => {
         ))}
       </div>
     </div>
-  )
-
+  );
 };
+
 export default HomePage;
