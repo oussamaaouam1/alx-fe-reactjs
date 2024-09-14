@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import data from '../data.json'; // Import JSON data
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link } from "react-router-dom";
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -20,6 +20,7 @@ const HomePage = () => {
       <h1>Recipes</h1>
       <div className="sm:grid grid-cols-1 md:grid-cols-2 lg:grid grid-cols-3">
         {recipes.map((recipe) => (
+          <Link to={`/recipe/${recipe.id}`} key={recipe.id}> {/* Wrap each card with Link */}
           <div 
             key={recipe.id} 
             className="bg-gray-100 p-8 md:max-w-sm  my-20 rounded-lg shadow-lg sm:p-4 md:p-8 sm:max-w-xs hover:shadow-xl cursor-pointer mx-10 "
@@ -29,6 +30,7 @@ const HomePage = () => {
             <h2 className="text-blue-800">{recipe.title}</h2>
             <p className="text-black">{recipe.summary}</p>
           </div>
+          </Link>
         ))}
       </div>
     </div>
