@@ -14,6 +14,7 @@ const HomePage = () => {
     // Navigate to the recipe details page
     navigate(`/recipe/${id}`);
     };
+    
 
   return (
     <div>
@@ -31,7 +32,15 @@ const HomePage = () => {
             <p className="text-black">{recipe.summary}</p>
           </div>
           </Link>
+          
         ))}
+        <div className="mb-6">
+        <Link to="/add-recipe">
+          <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
+            Add New Recipe
+          </button>
+        </Link>
+      </div>
       </div>
     </div>
   );
