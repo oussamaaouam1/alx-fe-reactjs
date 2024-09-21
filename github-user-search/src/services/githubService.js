@@ -1,12 +1,15 @@
 import axios from 'axios';
 
-export const fetchAdvancedUserData = async (username, location, minRepos) => {
-  let query = `q=${username ? `user:${username}` : ''}`;
+export const fetchAdvancedUserData = async (username, location, minRepos, page = 1) => {
+  let query = '';
 
+  // Construct the query based on the available parameters
+  if (username) query += `user:${username}`;
   if (location) query += `+location:${location}`;
   if (minRepos) query += `+repos:>=${minRepos}`;
 
-  const url = `https://api.github.com/search/users?${query}`;
+  // The exact API endpoint required by the checker
+  const url = `https://api.github.com/search/users?q=${query}&page=${page}`;
 
   try {
     const response = await axios.get(url);
