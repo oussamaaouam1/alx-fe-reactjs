@@ -14,6 +14,7 @@ export const fetchUserData = async (username, location, minRepos, page = 1) => {
   try {
     const response = await axios.get(url);
     return response.data;
+    
   } catch  {
     throw new Error('Failed to fetch user data');
   }

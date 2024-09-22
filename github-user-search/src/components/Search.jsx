@@ -80,14 +80,14 @@ function Search() {
               <img src={user.avatar_url} alt={`${user.login}'s avatar`} className="w-16 h-16 rounded-full" />
               <h3 className="text-lg font-semibold">{user.login}</h3>
               <p>Location: {user.location || 'N/A'}</p>
-              <p>Repositories: {user.public_repos || 'N/A'}</p>
+              <p>Repositories: {user.repos_url || 'N/A'}</p>
               <a href={user.html_url} className="text-blue-500" target="_blank" rel="noopener noreferrer">
                 View Profile
               </a>
             </div>
           ))}
         </div>
-      )}
+      )}     
     </div>
   );
 }
